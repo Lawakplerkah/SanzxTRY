@@ -23,31 +23,30 @@
     <!-- Daftar Produk -->
     <section id="produk-list">
       <h2>Daftar Produk</h2>
-      <ul id="produk-container">
+      <div id="produk-container">
         <!-- Produk akan ditambahkan melalui JavaScript -->
-      </ul>
+      </div>
     </section>
 
-    <!-- Channel atau Group WhatsApp -->
-    <section id="channel-group">
-      <h2>Channel atau Group WhatsApp</h2>
-      <p>Gabung untuk informasi lebih lanjut:</p>
-      <a href="https://chat.whatsapp.com/12345ABCDE" target="_blank">Gabung Group WhatsApp</a>
-    </section>
-
-    <!-- Tutorial Video -->
-    <section id="tutorial">
-      <h2>Tutorial Cara Transfer</h2>
-      <video controls width="320" height="240">
-        <source src=" " type="video/mp4">
-        Video tidak tersedia. Silakan periksa kembali link video.
-      </video>
+    <!-- Tombol Daftar Harga -->
+    <section id="daftar-harga">
+      <h2>Lihat Daftar Harga</h2>
+      <button id="btn-sewa">LIST HARGA SEWA BOT</button>
+      <button id="btn-premium">LIST HARGA PREMIUM</button>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2024 Store Produk Digital</p>
   </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-text"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
