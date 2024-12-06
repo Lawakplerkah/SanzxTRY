@@ -3,52 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store Produk Digital</title>
-  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Website Produk Bot</title>
+  <link rel="stylesheet" href="style.css"> <!-- Menghubungkan CSS -->
 </head>
 <body>
-  <header>
-    <h1>Store Produk Digital</h1>
-    <nav>
-      <div class="dropdown">
-        <button class="dropdown-toggle">≡</button>
-        <div class="dropdown-menu">
-          <a href="https://payment-asuna.vercel.app" target="_blank">Metode Pembayaran</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  
-  <main>
-    <!-- Daftar Produk -->
-    <section id="produk-list">
-      <h2>Daftar Produk</h2>
-      <div id="produk-container">
-        <!-- Produk akan ditambahkan melalui JavaScript -->
-      </div>
-    </section>
 
-    <!-- Tombol Daftar Harga -->
-    <section id="daftar-harga">
-      <h2>Informasi dan Harga</h2>
-      <button id="btn-sewa">LIST HARGA SEWA BOT</button>
-      <button id="btn-premium">LIST HARGA PREMIUM</button>
-    </section>
-  </main>
-
-  <footer>
-    <p>Hubungi Admin: <a href="https://wa.me/6283894064758" target="_blank">WhatsApp Admin</a></p>
-    <p>&copy; 2024 Store Produk Digital</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div id="modal-text"></div>
-    </div>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner">
+    <div class="spinner"></div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Pencarian Produk -->
+  <div class="search-container">
+    <input type="text" id="search-input" class="search-input" placeholder="Cari produk..." onkeyup="filterProducts()">
+  </div>
+
+  <h1>Produk Bot</h1>
+  
+  <!-- Produk Sewa -->
+  <h2>Paket Sewa</h2>
+  <div id="produk-sewa" class="produk-container"></div>
+
+  <!-- Produk Premium -->
+  <h2>Paket Premium</h2>
+  <div id="produk-premium" class="produk-container"></div>
+
+  <!-- Pagination -->
+  <div id="pagination-container" class="pagination-container">
+    <button id="prev-page" class="pagination-button">Prev</button>
+    <span id="page-number" class="page-number">Page 1</span>
+    <button id="next-page" class="pagination-button">Next</button>
+  </div>
+
+  <!-- Review Section -->
+  <div class="review-container">
+    <h3>Rating dan Review</h3>
+    <div class="rating">
+      <span class="star" onclick="setRating(1)">&#9733;</span>
+      <span class="star" onclick="setRating(2)">&#9733;</span>
+      <span class="star" onclick="setRating(3)">&#9733;</span>
+      <span class="star" onclick="setRating(4)">&#9733;</span>
+      <span class="star" onclick="setRating(5)">&#9733;</span>
+    </div>
+    <textarea id="review-text" placeholder="Tulis ulasan Anda..."></textarea>
+    <button class="submit-review" onclick="submitReview()">Kirim Review</button>
+  </div>
+
+  <!-- Admin Contact -->
+  <div class="admin-info">
+    <p><strong>Admin:</strong> John Doe</p>
+    <p>Email: <a href="mailto:admin@website.com">admin@website.com</a></p>
+    <p>Phone: <a href="tel:+6283894064758">+62 838 9406 4758</a></p>
+  </div>
+
+  <script src="script.js"></script> <!-- Menghubungkan JavaScript -->
 </body>
 </html>
