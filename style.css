@@ -12,10 +12,12 @@ header {
   color: white;
   padding: 1em;
   position: relative;
+  text-align: center;
 }
 
 header h1 {
   margin: 0;
+  font-size: 1.5em;
 }
 
 nav {
@@ -39,10 +41,6 @@ nav {
   border-radius: 5px;
 }
 
-.dropdown-toggle:hover {
-  background-color: #0056b3;
-}
-
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -53,7 +51,6 @@ nav {
   z-index: 10;
   border-radius: 5px;
   margin-top: 0.5em;
-  overflow: hidden;
 }
 
 .dropdown-menu a {
@@ -61,11 +58,6 @@ nav {
   padding: 0.5em 1em;
   text-decoration: none;
   color: #333;
-  font-size: 1em;
-}
-
-.dropdown-menu a:hover {
-  background-color: #f0f0f0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -82,12 +74,14 @@ section {
 
 #produk-container {
   display: flex;
+  overflow-x: auto;
   gap: 1em;
-  flex-wrap: wrap;
+  padding: 1em 0;
+  scroll-snap-type: x mandatory;
 }
 
 #produk-container .produk-item {
-  width: 200px;
+  flex: 0 0 200px;
   text-align: center;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -95,6 +89,7 @@ section {
   padding: 1em;
   cursor: pointer;
   transition: transform 0.2s;
+  scroll-snap-align: center;
 }
 
 #produk-container .produk-item:hover {
@@ -148,3 +143,10 @@ button:hover {
   font-size: 1.5em;
   cursor: pointer;
 }
+
+footer {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 1em 0;
+  }
