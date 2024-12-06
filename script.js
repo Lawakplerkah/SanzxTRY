@@ -1,54 +1,26 @@
-// Daftar produk
-const produk = [
-  { nama: "Paket Sewa Bot", harga: "Rp15.000 - Rp50.000", gambar: "https://files.catbox.moe/7prydh.jpg" },
-  { nama: "Paket Premium", harga: "Rp5.000 - Rp30.000", gambar: "https://files.catbox.moe/7prydh.jpg" },
-  { nama: "Paket Custom", harga: "Hubungi Admin", gambar: "https://files.catbox.moe/7prydh.jpg" }
+// Produk Data
+const produkSewa = [
+  { nama: "Paket S1", harga: "Rp15.000 / Group", deskripsi: "Masa aktif 15 Hari", gambar: "https://files.catbox.moe/7prydh.jpg" },
+  { nama: "Paket S2", harga: "Rp25.000 / Group", deskripsi: "Masa aktif 1 Bulan", gambar: "https://files.catbox.moe/7prydh.jpg" },
+  // Produk lainnya
 ];
 
-// Render daftar produk
-const produkContainer = document.getElementById("produk-container");
-produk.forEach((item) => {
-  const produkItem = document.createElement("div");
-  produkItem.className = "produk-item";
-  produkItem.innerHTML = `
-    <img src="${item.gambar}" alt="${item.nama}">
-    <h3>${item.nama}</h3>
-    <p>${item.harga}</p>
-  `;
-  produkContainer.appendChild(produkItem);
-});
+const produkPremium = [
+  { nama: "Paket P1", harga: "Rp5.000 / 7 Day", deskripsi: "Unlock Feature Premium", gambar: "https://files.catbox.moe/7prydh.jpg" },
+  { nama: "Paket P2", harga: "Rp10.000 / 15 Day", deskripsi: "Unlock Feature Premium", gambar: "https://files.catbox.moe/7prydh.jpg" },
+  // Produk lainnya
+];
 
-// Modal untuk daftar harga
-const modal = document.getElementById("modal");
-const modalText = document.getElementById("modal-text");
-const closeModal = document.querySelector(".close");
+let currentPage = 1;
+const productsPerPage = 6;
 
-closeModal.onclick = () => (modal.style.display = "none");
-
-window.onclick = (event) => {
-  if (event.target === modal) modal.style.display = "none";
-};
-
-document.getElementById("btn-sewa").onclick = () => {
-  modal.style.display = "flex";
-  modalText.innerHTML = `<pre>
-*LIST HARGA SEWA BOT*
-
-*PAKET S1*: Rp15.000 / Group
-*PAKET S2*: Rp25.000 / Group
-*PAKET S3*: Rp40.000 / Group
-Berminat? <a href="https://wa.me/6283894064758" target="_blank">Hubungi Admin</a>
-</pre>`;
-};
-
-document.getElementById("btn-premium").onclick = () => {
-  modal.style.display = "flex";
-  modalText.innerHTML = `<pre>
-*LIST HARGA PREMIUM*
-
-*PAKET P1*: Rp5.000 / 7 Hari
-*PAKET P2*: Rp10.000 / 15 Hari
-*PAKET P3*: Rp20.000 / 30 Hari
-Berminat? <a href="https://wa.me/6283894064758" target="_blank">Hubungi Admin</a>
-</pre>`;
-};
+const updatePagination = () => {
+  const allProducts = [...produkSewa, ...produkPremium];
+  const totalProducts = allProducts.length;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  const currentProducts = allProducts.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
+  
+  // Update halaman produk
+  displayProducts(currentProducts);
+  // Update halaman
+  document.getElementById('page-number').
